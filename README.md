@@ -32,6 +32,8 @@ if (-not (Test-Path .env)) { Copy-Item .env.example .env }
 
 Linux/macOS使用 `python3 -m venv .venv`，后续将上述`.\.venv\Scripts\python.exe`换成`.venv/bin/python`，复制配置使用`cp .env.example .env`。可以在另一个终端执行`.venv/bin/python scripts/server.py stop`停止服务。
 
+启动成功后会自动在默认浏览器打开项目页面；未能打开时，可手动访问 http://127.0.0.1:8765。无需自动打开时，在启动命令后添加 `--no-browser`（适用于服务器或自动化运行）。
+
 停止项目：在启动窗口按 **Enter**，或者双击项目目录的 **`停止项目.bat`**。会等待当前任务完成后关闭，不需要按 Ctrl+C。请使用 `run.bat` 或上面的启动命令，停止脚本才能识别本项目；旧版直接启动的Uvicorn窗口需先关闭一次。
 
 模型密钥通过私有`.env`配置，不进入可分享源码。接收项目的人应自行配置密钥。代理平台实际返回的模型标识保存在每条线索的运行记录里，不将请求名等同于已验证的底层模型版本。

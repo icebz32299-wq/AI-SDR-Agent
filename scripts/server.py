@@ -9,6 +9,7 @@ import socket
 import sys
 import threading
 import time
+import webbrowser
 from uuid import uuid4
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -55,7 +56,24 @@ class StartHint(logging.Filter):
         return True
 
 
-def serve(port, console=True):
+def open_when_ready(server, url, done):
+    """Launch only after Uvicorn has completed application startup."""
+    while not done.wait(0.1):
+        if server.should_exit:
+            return
+        if server.started:
+            try:
+                opened = webbrowser.open(url)
+            except Exception:
+                opened = False
+            if opened:
+                print("已请求浏览器打开项目页面。", flush=True)
+            else:
+                print(f"未能自动打开浏览器，请手动访问：{url}", flush=True)
+            return
+
+
+def serve(port, console=True, open_browser=True):
     import uvicorn
 
     lock_path, state_path, stop_path = paths(port)
@@ -118,7 +136,12 @@ def serve(port, console=True):
         threading.Thread(target=watch_stop, daemon=True).start()
         if console:
             threading.Thread(target=read_console, daemon=True).start()
-        print(f"项目地址：http://127.0.0.1:{port}", flush=True)
+        url = f"http://127.0.0.1:{port}"
+        if open_browser:
+            threading.Thread(
+                target=open_when_ready, args=(server, url, done), daemon=True
+            ).start()
+        print(f"项目地址：{url}", flush=True)
         print(
             "停止方式：在此窗口按 Enter，或双击项目目录中的“停止项目.bat”。", flush=True
         )
@@ -184,11 +207,12 @@ def main():
     parser.add_argument("action", choices=("run", "stop"))
     parser.add_argument("--port", type=int, default=8765)
     parser.add_argument("--no-console", action="store_true")
+    parser.add_argument("--no-browser", action="store_true", help="不自动打开浏览器")
     args = parser.parse_args()
     if not 1 <= args.port <= 65535:
         parser.error("port must be between 1 and 65535")
     return (
-        serve(args.port, not args.no_console)
+        serve(args.port, not args.no_console, not args.no_browser)
         if args.action == "run"
         else stop(args.port)
     )

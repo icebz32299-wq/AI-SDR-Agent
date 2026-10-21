@@ -3,9 +3,12 @@ from pathlib import Path
 import socket
 import subprocess
 import sys
+import threading
 import time
+from types import SimpleNamespace
 
 import httpx
+import pytest
 
 from app import config
 from scripts import server
@@ -22,7 +25,7 @@ def test_enter_and_stop_command_close_only_the_managed_server(tmp_path):
         "SDR_ACCESS_TOKEN": "",
         "PYTHONUTF8": "1",
     }
-    command = [sys.executable, "scripts/server.py"]
+    command = [sys.executable, "scripts/server.py", "--no-browser"]
     for use_enter in (False, True):
         process = subprocess.Popen(
             command + ["run", "--port", str(port)],
@@ -106,3 +109,60 @@ def test_stop_does_not_terminate_an_unmanaged_listener(tmp_path, monkeypatch):
         assert server.stop(port) == 1
         with socket.create_connection(("127.0.0.1", port), timeout=1):
             pass
+
+
+def test_browser_waits_for_startup_and_opens_custom_port_once(monkeypatch):
+    state = SimpleNamespace(started=False, should_exit=False)
+    done = threading.Event()
+    opened = threading.Event()
+    urls = []
+
+    def launch(url):
+        urls.append(url)
+        opened.set()
+        return True
+
+    monkeypatch.setattr(server.webbrowser, "open", launch)
+    worker = threading.Thread(
+        target=server.open_when_ready,
+        args=(state, "http://127.0.0.1:9876", done),
+    )
+    worker.start()
+    try:
+        assert not opened.wait(0.25)
+        state.started = True
+        assert opened.wait(2)
+        worker.join(timeout=2)
+        assert not worker.is_alive()
+        assert urls == ["http://127.0.0.1:9876"]
+    finally:
+        done.set()
+        worker.join(timeout=2)
+
+
+def test_browser_does_not_open_when_startup_exits(monkeypatch):
+    def unexpected_open(url):
+        pytest.fail("Browser must not open after startup exits")
+
+    monkeypatch.setattr(server.webbrowser, "open", unexpected_open)
+    server.open_when_ready(
+        SimpleNamespace(started=False, should_exit=True),
+        "http://127.0.0.1:8765",
+        threading.Event(),
+    )
+
+
+@pytest.mark.parametrize("raises", [False, True])
+def test_browser_failure_keeps_manual_address(monkeypatch, capsys, raises):
+    def unavailable(url):
+        if raises:
+            raise OSError("No desktop browser")
+        return False
+
+    monkeypatch.setattr(server.webbrowser, "open", unavailable)
+    server.open_when_ready(
+        SimpleNamespace(started=True, should_exit=False),
+        "http://127.0.0.1:9876",
+        threading.Event(),
+    )
+    assert "请手动访问：http://127.0.0.1:9876" in capsys.readouterr().out
