@@ -1,0 +1,16 @@
+.env
+.env.*
+**/.env
+**/.env.*
+.tools
+.venv
+runtime
+.git
+__pycache__
+output
+*.sqlite3*
+*.mp3
+*.wav
+*.m4a
+*.mp4
+*.log

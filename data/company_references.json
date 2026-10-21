@@ -1,0 +1,42 @@
+[
+  {
+    "brand": "木里木外",
+    "company_name": "木里木外家具启东有限公司",
+    "kind": "official_reference",
+    "relationship": "官网版权主体参考，不证明本次通话的签约主体",
+    "source": "品牌官网页脚版权信息",
+    "url": "https://www.muli.group/",
+    "checked_at": "2026-10-19",
+    "area": ""
+  },
+  {
+    "brand": "木里木外",
+    "company_name": "木里木外杭州体验店",
+    "kind": "store_reference",
+    "relationship": "官网列出的杭州门店线索，未披露该门店工商主体",
+    "source": "品牌官网联系我们：杭州体验店，古墩路808号",
+    "url": "https://www.muli.group/contact",
+    "checked_at": "2026-10-19",
+    "area": "杭州"
+  },
+  {
+    "brand": "欧派",
+    "company_name": "欧派家居集团股份有限公司",
+    "kind": "official_reference",
+    "relationship": "官网介绍的集团主体，不自动归属经销或加盟客户",
+    "source": "欧派官网：关于欧派",
+    "url": "https://www.oppein.com/cn/womendegongsi/guanyuwomen/",
+    "checked_at": "2026-10-19",
+    "area": ""
+  },
+  {
+    "brand": "索菲亚",
+    "company_name": "索菲亚家居股份有限公司",
+    "kind": "official_reference",
+    "relationship": "官网版权主体参考，不证明本次通话的签约主体",
+    "source": "索菲亚官网页脚版权信息",
+    "url": "https://m.suofeiya.com/",
+    "checked_at": "2026-10-19",
+    "area": ""
+  }
+]

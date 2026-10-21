@@ -1,0 +1,84 @@
+{
+  "checked_at": "2026-10-21",
+  "basis": "Original assignment PDF (4 pages), supplemented submission/scoring screenshot and user constraints",
+  "functional_tests": {
+    "generated_at": "2026-10-20T16:53:25.672324+00:00",
+    "total": 128,
+    "passed": 128,
+    "failed": 0,
+    "skipped": 0
+  },
+  "clean_environment": {
+    "python": "3.13.9",
+    "installation": "requirements-audio.txt + requirements-dev.txt",
+    "tests_total": 128,
+    "tests_passed": 128,
+    "private_credentials_present": false,
+    "materials_folder_required": false,
+    "latest_packages": "fresh install from declared requirements",
+    "asr_model": "existing local small model cache reused; download from scratch not repeated",
+    "source_archive_verification": "passed: extracted shareable source tested without .env, private data or tools directory"
+  },
+  "original_model_cases": {
+    "total": 4,
+    "passed": 4
+  },
+  "synthetic_challenges": {
+    "total": 13,
+    "passed": 13,
+    "prompt_version": "1.2",
+    "independent_business_benchmark": false
+  },
+  "audio_integration": {
+    "source": "local_audio_fixture",
+    "credentials_configured": false,
+    "mode": "baseline",
+    "model_api_checked_here": false,
+    "upload": "passed",
+    "asr": "passed",
+    "duration": 12.0,
+    "processed_seconds": 12.0,
+    "segments": 7,
+    "output_fields": 15,
+    "review": "passed",
+    "export": "passed",
+    "elapsed_seconds": 18.37,
+    "fixture_provenance": "Local test fixture; not independently labeled and not a synthetic accuracy benchmark",
+    "audio_sent_to_external_service": false,
+    "gold_transcript_available": false
+  },
+  "browser_checks": [
+    "single approval and edited field saved",
+    "multi-select approves both records with distinct data",
+    "unselected record unchanged",
+    "filter preserved after row click and sidebar navigation",
+    "per-record audit history"
+  ],
+  "persistence": "approved lead and audit reloaded in a new application lifespan",
+  "limitations": [
+    "No independently adjudicated real-call gold set",
+    "Live external company search not configured or verified",
+    "Company knowledge base is limited; unknown legal entities require human verification",
+    "Latest screen recording and accessible GitHub repository not yet delivered"
+  ],
+  "public_release_ready": false,
+  "browser_layout": {
+    "desktop": {
+      "viewport": 1366,
+      "content": 1350
+    },
+    "narrow": {
+      "viewport": 390,
+      "analyze_content": 375,
+      "review_content": 375,
+      "report_content": 375
+    }
+  },
+  "source_package": {
+    "files": 81,
+    "private_materials_excluded": true,
+    "configured_model_key_scan": "passed",
+    "published_to_github": false
+  },
+  "temporary_server_stopped": true
+}

@@ -1,0 +1,33 @@
+services:
+  app:
+    build:
+      context: ..
+    env_file: .env
+    environment:
+      SDR_DATA_DIR: /data
+      SDR_DEPLOYMENT_MODE: cloud
+      SDR_PUBLIC_ORIGIN: https://${DEMO_DOMAIN:?Set DEMO_DOMAIN}
+      FORWARDED_ALLOW_IPS: '*'
+    expose:
+      - '8765'
+    volumes:
+      - demo-data:/data
+    restart: unless-stopped
+  web:
+    image: caddy:2
+    environment:
+      DEMO_DOMAIN: ${DEMO_DOMAIN:?Set DEMO_DOMAIN}
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - app
+    restart: unless-stopped
+volumes:
+  demo-data:
+  caddy-data:
+  caddy-config:

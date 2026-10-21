@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+deploy/.env
+.venv/
+.tools/
+__pycache__/
+.pytest_cache/
+runtime/
+*.sqlite3*
+*.log
+output/private/
+output/

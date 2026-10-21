@@ -1,0 +1,815 @@
+{
+  "generated_at": "2026-10-20T16:44:01.613126+00:00",
+  "mode": "llm",
+  "provider_model": "deepseek/deepseek-flash",
+  "summary": "题目示例与合成边界案例用于验证结构、证据和意向。真实录音尚未形成独立人工金标，不宣称真实业务准确率。",
+  "tests_passed": 128,
+  "test_summary": {
+    "generated_at": "2026-10-20T16:53:25.672324+00:00",
+    "total": 128,
+    "passed": 128,
+    "failed": 0,
+    "skipped": 0
+  },
+  "llm_cases": [
+    {
+      "id": "assignment",
+      "title": "题目示例 · 木里木外",
+      "source": "assignment_example",
+      "expected_intent": "high",
+      "intent_level": "high",
+      "intent_matches": true,
+      "valid_schema": true,
+      "grounded_fields": 7,
+      "result": {
+        "company_name": "木里木外",
+        "industry": "全屋定制",
+        "area": "杭州",
+        "contact_name": "张总",
+        "contact_title": "",
+        "phone": "138xxxx1234",
+        "intent_level": "high",
+        "intent_reason": "需求痛点：明确效率与协同痛点，已影响工厂对接。；时间计划：客户明确近期试用时间。；预算信息：客户明确接受年度数万元付费范围。；推进动作：客户明确表达近期试用意向。；使用规模：明确设计团队多人使用。",
+        "demand_summary": "企业版设计软件；解决出图慢、工厂对接出错",
+        "mendian": "",
+        "shejishi": "约15人",
+        "call_time": "",
+        "next_action": "按客户表达的时间确认演示或试用安排，并核实签约主体与决策人",
+        "confidence_score": 0.7,
+        "need_human_review": true
+      },
+      "analysis": {
+        "turns": [
+          {
+            "id": "T1",
+            "speaker": "sales",
+            "text": "您好，请问是张总吗？我是酷家乐的小王。"
+          },
+          {
+            "id": "T2",
+            "speaker": "customer",
+            "text": "是的，你讲。"
+          },
+          {
+            "id": "T3",
+            "speaker": "sales",
+            "text": "上次您在我们官网留了信息，想了解企业版设计软件，今天想跟您确认一下需求。"
+          },
+          {
+            "id": "T4",
+            "speaker": "customer",
+            "text": "对，我们这边是杭州那边一个做全屋定制的，叫“木里木外”，不知道你们听过没有。"
+          },
+          {
+            "id": "T5",
+            "speaker": "sales",
+            "text": "了解的，木里木外是高定品牌。那您这边大概多少人用？主要想解决什么问题？"
+          },
+          {
+            "id": "T6",
+            "speaker": "customer",
+            "text": "设计部大概15个人，现在用的是别的软件，出图慢，而且跟工厂对接经常出错。"
+          },
+          {
+            "id": "T7",
+            "speaker": "sales",
+            "text": "明白，那我们企业版可以支持参数化设计，一键出图，还能对接生产。您大概什么时候想上线？"
+          },
+          {
+            "id": "T8",
+            "speaker": "customer",
+            "text": "最好下个月就能试一下，预算的话，一年几万块我们能接受。"
+          },
+          {
+            "id": "T9",
+            "speaker": "sales",
+            "text": "好的张总，我加您微信，把方案发您。"
+          },
+          {
+            "id": "T10",
+            "speaker": "customer",
+            "text": "行，你加这个手机号就行，138xxxx1234。"
+          }
+        ],
+        "evidence": {
+          "company_name": {
+            "value": "木里木外",
+            "quote": "叫“木里木外”",
+            "turn_id": "T4"
+          },
+          "industry": {
+            "value": "全屋定制",
+            "quote": "做全屋定制的",
+            "turn_id": "T4"
+          },
+          "area": {
+            "value": "杭州",
+            "quote": "杭州那边",
+            "turn_id": "T4"
+          },
+          "contact_name": {
+            "value": "张总",
+            "quote": "您好，请问是张总吗？",
+            "turn_id": "T1"
+          },
+          "phone": {
+            "value": "138xxxx1234",
+            "quote": "138xxxx1234",
+            "turn_id": "T10"
+          },
+          "demand_summary": {
+            "value": "企业版设计软件；解决出图慢、工厂对接出错",
+            "quote": "现在用的是别的软件，出图慢，而且跟工厂对接经常出错。",
+            "turn_id": "T6"
+          },
+          "shejishi": {
+            "value": "约15人",
+            "quote": "设计部大概15个人",
+            "turn_id": "T6"
+          }
+        },
+        "company": {
+          "raw_name": "木里木外",
+          "display_name": "木里木外",
+          "status": "brand_only",
+          "support": 0.55,
+          "candidates": [
+            {
+              "company_name": "木里木外",
+              "kind": "brand",
+              "similarity": 1.0,
+              "source": "题目提供的品牌示例；不是已核验工商主体"
+            },
+            {
+              "brand": "木里木外",
+              "company_name": "木里木外家具启东有限公司",
+              "kind": "official_reference",
+              "relationship": "官网版权主体参考，不证明本次通话的签约主体",
+              "source": "品牌官网页脚版权信息",
+              "url": "https://www.muli.group/",
+              "checked_at": "2026-10-19",
+              "area": ""
+            },
+            {
+              "brand": "木里木外",
+              "company_name": "木里木外杭州体验店",
+              "kind": "store_reference",
+              "relationship": "官网列出的杭州门店线索，未披露该门店工商主体",
+              "source": "品牌官网联系我们：杭州体验店，古墩路808号",
+              "url": "https://www.muli.group/contact",
+              "checked_at": "2026-10-19",
+              "area": "杭州"
+            }
+          ],
+          "note": "找到品牌候选；品牌方、经销商与加盟门店不能直接视为同一工商主体"
+        },
+        "intent": {
+          "level": "high",
+          "score": 100.0,
+          "card": [
+            {
+              "key": "pain",
+              "label": "需求痛点",
+              "weight": 25,
+              "points": 25.0,
+              "strength": 2,
+              "quote": "现在用的是别的软件，出图慢，而且跟工厂对接经常出错。",
+              "turn_id": "T6",
+              "explanation": "明确效率与协同痛点，已影响工厂对接。"
+            },
+            {
+              "key": "timeline",
+              "label": "时间计划",
+              "weight": 25,
+              "points": 25.0,
+              "strength": 2,
+              "quote": "最好下个月就能试一下",
+              "turn_id": "T8",
+              "explanation": "客户明确近期试用时间。"
+            },
+            {
+              "key": "budget",
+              "label": "预算信息",
+              "weight": 20,
+              "points": 20.0,
+              "strength": 2,
+              "quote": "预算的话，一年几万块我们能接受。",
+              "turn_id": "T8",
+              "explanation": "客户明确接受年度数万元付费范围。"
+            },
+            {
+              "key": "engagement",
+              "label": "推进动作",
+              "weight": 20,
+              "points": 20.0,
+              "strength": 2,
+              "quote": "最好下个月就能试一下",
+              "turn_id": "T8",
+              "explanation": "客户明确表达近期试用意向。"
+            },
+            {
+              "key": "scale",
+              "label": "使用规模",
+              "weight": 10,
+              "points": 10.0,
+              "strength": 2,
+              "quote": "设计部大概15个人",
+              "turn_id": "T6",
+              "explanation": "明确设计团队多人使用。"
+            }
+          ],
+          "reason": "需求痛点：明确效率与协同痛点，已影响工厂对接。；时间计划：客户明确近期试用时间。；预算信息：客户明确接受年度数万元付费范围。；推进动作：客户明确表达近期试用意向。；使用规模：明确设计团队多人使用。",
+          "high_gate_met": true,
+          "refusal": {
+            "value": "",
+            "quote": "",
+            "turn_id": ""
+          },
+          "version": "1.0"
+        },
+        "review_reasons": [
+          "找到品牌候选；品牌方、经销商与加盟门店不能直接视为同一工商主体",
+          "联系人来自销售称呼“张总”，客户仅回应确认，未核实具体姓名与职位",
+          "职位未提及；“张总”不能作为总经理职位证据",
+          "门店数未提及，门店数留空",
+          "“设计部大概15个人”按设计团队口径记录，是否全为设计师未核实",
+          "综合证据支持度低于审核阈值0.80"
+        ],
+        "mode": "llm",
+        "provider_model": "deepseek/deepseek-flash",
+        "usage": {
+          "prompt_tokens": 1229,
+          "completion_tokens": 2367,
+          "total_tokens": 3596,
+          "prompt_tokens_details": {
+            "cached_tokens": 640
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1863
+          }
+        },
+        "attempts": 1,
+        "elapsed_seconds": 15.62,
+        "prompt_version": "1.2",
+        "input_hash": "8fbe4c73d67d7b4e7c9739bc78c3ebf3b3feeca7f6f9c7f73220de0a53f8dd61",
+        "confidence_note": "启发式证据支持度，尚未用独立样本校准为正确概率",
+        "workflow": [
+          "发言整理",
+          "事实与信号抽取",
+          "原文证据校验",
+          "企业候选消歧",
+          "评分卡判级",
+          "审核分流"
+        ]
+      }
+    },
+    {
+      "id": "polite",
+      "title": "合成测试 · 礼貌收资料",
+      "source": "synthetic",
+      "expected_intent": "low",
+      "intent_level": "low",
+      "intent_matches": true,
+      "valid_schema": true,
+      "grounded_fields": 1,
+      "result": {
+        "company_name": "",
+        "industry": "",
+        "area": "",
+        "contact_name": "",
+        "contact_title": "",
+        "phone": "",
+        "intent_level": "low",
+        "intent_reason": "需求痛点：仅泛泛了解，无具体痛点；推进动作：客户同意先接收资料",
+        "demand_summary": "随便了解，当前无采购计划",
+        "mendian": "",
+        "shejishi": "",
+        "call_time": "",
+        "next_action": "补充确认企业主体、需求与采购计划",
+        "confidence_score": 0.47,
+        "need_human_review": true
+      },
+      "analysis": {
+        "turns": [
+          {
+            "id": "T1",
+            "speaker": "sales",
+            "text": "您好，我们企业版能一键出图，也能安排下周上线，预算一年三万左右。"
+          },
+          {
+            "id": "T2",
+            "speaker": "customer",
+            "text": "我就是随便了解一下，现在没有采购计划。"
+          },
+          {
+            "id": "T3",
+            "speaker": "sales",
+            "text": "您那边多少设计师呢？"
+          },
+          {
+            "id": "T4",
+            "speaker": "customer",
+            "text": "还没定，你先发点资料吧。"
+          }
+        ],
+        "evidence": {
+          "demand_summary": {
+            "value": "随便了解，当前无采购计划",
+            "quote": "我就是随便了解一下，现在没有采购计划。",
+            "turn_id": "T2"
+          }
+        },
+        "company": {
+          "raw_name": "",
+          "display_name": "",
+          "status": "missing",
+          "support": 0.15,
+          "candidates": [],
+          "note": "客户企业名称未确认"
+        },
+        "intent": {
+          "level": "low",
+          "score": 22.5,
+          "card": [
+            {
+              "key": "pain",
+              "label": "需求痛点",
+              "weight": 25,
+              "points": 12.5,
+              "strength": 1,
+              "quote": "我就是随便了解一下",
+              "turn_id": "T2",
+              "explanation": "仅泛泛了解，无具体痛点"
+            },
+            {
+              "key": "timeline",
+              "label": "时间计划",
+              "weight": 25,
+              "points": 0.0,
+              "strength": 0,
+              "quote": "现在没有采购计划",
+              "turn_id": "T2",
+              "explanation": "客户明确当前无采购计划"
+            },
+            {
+              "key": "budget",
+              "label": "预算信息",
+              "weight": 20,
+              "points": 0.0,
+              "strength": 0,
+              "quote": "",
+              "turn_id": "",
+              "explanation": ""
+            },
+            {
+              "key": "engagement",
+              "label": "推进动作",
+              "weight": 20,
+              "points": 10.0,
+              "strength": 1,
+              "quote": "你先发点资料吧",
+              "turn_id": "T4",
+              "explanation": "客户同意先接收资料"
+            },
+            {
+              "key": "scale",
+              "label": "使用规模",
+              "weight": 10,
+              "points": 0.0,
+              "strength": 0,
+              "quote": "",
+              "turn_id": "",
+              "explanation": ""
+            }
+          ],
+          "reason": "需求痛点：仅泛泛了解，无具体痛点；推进动作：客户同意先接收资料",
+          "high_gate_met": false,
+          "refusal": {
+            "value": "",
+            "quote": "",
+            "turn_id": ""
+          },
+          "version": "1.0"
+        },
+        "review_reasons": [
+          "客户企业名称未确认",
+          "客户未提供企业名称、行业、经营地区、联系人、职位和电话",
+          "客户设计师数量未确定",
+          "销售所述企业版、下周上线及预算未获客户确认，未计入客户事实",
+          "缺少客户联系方式",
+          "综合证据支持度低于审核阈值0.80"
+        ],
+        "mode": "llm",
+        "provider_model": "deepseek/deepseek-flash",
+        "usage": {
+          "prompt_tokens": 976,
+          "completion_tokens": 1324,
+          "total_tokens": 2300,
+          "prompt_tokens_details": {
+            "cached_tokens": 640
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 965
+          }
+        },
+        "attempts": 1,
+        "elapsed_seconds": 8.83,
+        "prompt_version": "1.2",
+        "input_hash": "9950f4db90c35e06bf7784e5aa081a6c19ede574e52cc3b25127d3d4294ccfbc",
+        "confidence_note": "启发式证据支持度，尚未用独立样本校准为正确概率",
+        "workflow": [
+          "发言整理",
+          "事实与信号抽取",
+          "原文证据校验",
+          "企业候选消歧",
+          "评分卡判级",
+          "审核分流"
+        ]
+      }
+    },
+    {
+      "id": "correction",
+      "title": "合成测试 · 人数与当前意向纠正",
+      "source": "synthetic",
+      "expected_intent": "low",
+      "intent_level": "low",
+      "intent_matches": true,
+      "valid_schema": true,
+      "grounded_fields": 5,
+      "result": {
+        "company_name": "云间家居工作室",
+        "industry": "全屋定制",
+        "area": "杭州",
+        "contact_name": "李",
+        "contact_title": "",
+        "phone": "",
+        "intent_level": "low",
+        "intent_reason": "当前明确拒绝优先：现在不考虑采购了，别再打电话了。；使用规模：确认设计师为5人，属多人团队",
+        "demand_summary": "",
+        "mendian": "",
+        "shejishi": "5人",
+        "call_time": "",
+        "next_action": "尊重客户拒绝；如要求停止联系，登记停止联系，不继续营销跟进",
+        "confidence_score": 0.75,
+        "need_human_review": true
+      },
+      "analysis": {
+        "turns": [
+          {
+            "id": "T1",
+            "speaker": "sales",
+            "text": "您好，李总，您这边是十五个设计师吗？"
+          },
+          {
+            "id": "T2",
+            "speaker": "customer",
+            "text": "不是十五个，是五个。我们是杭州做全屋定制的，公司叫云间家居工作室。"
+          },
+          {
+            "id": "T3",
+            "speaker": "sales",
+            "text": "上次您说想买，这周可以给您演示。"
+          },
+          {
+            "id": "T4",
+            "speaker": "customer",
+            "text": "那是之前，现在不考虑采购了，别再打电话了。"
+          }
+        ],
+        "evidence": {
+          "company_name": {
+            "value": "云间家居工作室",
+            "quote": "公司叫云间家居工作室",
+            "turn_id": "T2"
+          },
+          "industry": {
+            "value": "全屋定制",
+            "quote": "我们是杭州做全屋定制的",
+            "turn_id": "T2"
+          },
+          "area": {
+            "value": "杭州",
+            "quote": "我们是杭州做全屋定制的",
+            "turn_id": "T2"
+          },
+          "contact_name": {
+            "value": "李",
+            "quote": "李总",
+            "turn_id": "T1"
+          },
+          "shejishi": {
+            "value": "5人",
+            "quote": "不是十五个，是五个",
+            "turn_id": "T2"
+          }
+        },
+        "company": {
+          "raw_name": "云间家居工作室",
+          "display_name": "云间家居工作室",
+          "status": "self_reported",
+          "support": 0.72,
+          "candidates": [],
+          "note": "客户自报完整名称，尚未独立核验工商主体"
+        },
+        "intent": {
+          "level": "low",
+          "score": 10.0,
+          "card": [
+            {
+              "key": "pain",
+              "label": "需求痛点",
+              "weight": 25,
+              "points": 0.0,
+              "strength": 0,
+              "quote": "",
+              "turn_id": "",
+              "explanation": "客户当前不考虑采购，无明确痛点"
+            },
+            {
+              "key": "timeline",
+              "label": "时间计划",
+              "weight": 25,
+              "points": 0.0,
+              "strength": 0,
+              "quote": "现在不考虑采购了",
+              "turn_id": "T4",
+              "explanation": "当前无采购计划"
+            },
+            {
+              "key": "budget",
+              "label": "预算信息",
+              "weight": 20,
+              "points": 0.0,
+              "strength": 0,
+              "quote": "",
+              "turn_id": "",
+              "explanation": "未提及预算"
+            },
+            {
+              "key": "engagement",
+              "label": "推进动作",
+              "weight": 20,
+              "points": 0.0,
+              "strength": 0,
+              "quote": "别再打电话了",
+              "turn_id": "T4",
+              "explanation": "明确要求停止联系，未推进下一步"
+            },
+            {
+              "key": "scale",
+              "label": "使用规模",
+              "weight": 10,
+              "points": 10.0,
+              "strength": 2,
+              "quote": "是五个",
+              "turn_id": "T2",
+              "explanation": "确认设计师为5人，属多人团队"
+            }
+          ],
+          "reason": "当前明确拒绝优先：现在不考虑采购了，别再打电话了。；使用规模：确认设计师为5人，属多人团队",
+          "high_gate_met": false,
+          "refusal": {
+            "value": "当前不考虑采购，要求别再打电话",
+            "quote": "现在不考虑采购了，别再打电话了。",
+            "turn_id": "T4"
+          },
+          "version": "1.0"
+        },
+        "review_reasons": [
+          "客户自报完整名称，尚未独立核验工商主体",
+          "联系人仅由销售称呼“李总”辅助识别，客户未自报全名",
+          "职位未确认，“总”不能作为职位依据",
+          "设计师人数为5人，依据客户回应销售关于“设计师”人数的提问",
+          "手机号、门店数未提及",
+          "缺少客户联系方式",
+          "综合证据支持度低于审核阈值0.80"
+        ],
+        "mode": "llm",
+        "provider_model": "deepseek/deepseek-flash",
+        "usage": {
+          "prompt_tokens": 991,
+          "completion_tokens": 2266,
+          "total_tokens": 3257,
+          "prompt_tokens_details": {
+            "cached_tokens": 640
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1838
+          }
+        },
+        "attempts": 1,
+        "elapsed_seconds": 14.66,
+        "prompt_version": "1.2",
+        "input_hash": "c53428b1344506a5a1e76dcbefd0a65eca1d4440a32329bb639c39db682d12eb",
+        "confidence_note": "启发式证据支持度，尚未用独立样本校准为正确概率",
+        "workflow": [
+          "发言整理",
+          "事实与信号抽取",
+          "原文证据校验",
+          "企业候选消歧",
+          "评分卡判级",
+          "审核分流"
+        ]
+      }
+    },
+    {
+      "id": "medium",
+      "title": "合成测试 · 明确需求但计划未定",
+      "source": "synthetic",
+      "expected_intent": "medium",
+      "intent_level": "medium",
+      "intent_matches": true,
+      "valid_schema": true,
+      "grounded_fields": 6,
+      "result": {
+        "company_name": "青禾空间",
+        "industry": "室内设计",
+        "area": "苏州",
+        "contact_name": "王经理",
+        "contact_title": "",
+        "phone": "",
+        "intent_level": "medium",
+        "intent_reason": "需求痛点：明确出图效率与返工痛点，想改善；推进动作：同意加微信先收资料；使用规模：8名设计师，多人使用",
+        "demand_summary": "改善出图慢、常返工；采购时间未定、预算未批",
+        "mendian": "",
+        "shejishi": "8人",
+        "call_time": "",
+        "next_action": "围绕已确认痛点发送针对性方案，补问预算与试用时间",
+        "confidence_score": 0.64,
+        "need_human_review": true
+      },
+      "analysis": {
+        "turns": [
+          {
+            "id": "T1",
+            "speaker": "sales",
+            "text": "您好，请问王经理在吗？"
+          },
+          {
+            "id": "T2",
+            "speaker": "customer",
+            "text": "我是，我们在苏州做室内设计，工作室叫青禾空间。"
+          },
+          {
+            "id": "T3",
+            "speaker": "sales",
+            "text": "主要想解决什么问题呢？"
+          },
+          {
+            "id": "T4",
+            "speaker": "customer",
+            "text": "我们8个设计师，出图很慢，经常要返工，确实想改善。但采购什么时候推进还没定，预算也还没批。"
+          },
+          {
+            "id": "T5",
+            "speaker": "sales",
+            "text": "先加微信发资料可以吗？"
+          },
+          {
+            "id": "T6",
+            "speaker": "customer",
+            "text": "可以，先发资料我看看。"
+          }
+        ],
+        "evidence": {
+          "company_name": {
+            "value": "青禾空间",
+            "quote": "工作室叫青禾空间",
+            "turn_id": "T2"
+          },
+          "industry": {
+            "value": "室内设计",
+            "quote": "我们在苏州做室内设计",
+            "turn_id": "T2"
+          },
+          "area": {
+            "value": "苏州",
+            "quote": "我们在苏州做室内设计",
+            "turn_id": "T2"
+          },
+          "contact_name": {
+            "value": "王经理",
+            "quote": "王经理在吗",
+            "turn_id": "T1"
+          },
+          "demand_summary": {
+            "value": "改善出图慢、常返工；采购时间未定、预算未批",
+            "quote": "我们8个设计师，出图很慢，经常要返工，确实想改善。但采购什么时候推进还没定，预算也还没批。",
+            "turn_id": "T4"
+          },
+          "shejishi": {
+            "value": "8人",
+            "quote": "我们8个设计师",
+            "turn_id": "T4"
+          }
+        },
+        "company": {
+          "raw_name": "青禾空间",
+          "display_name": "青禾空间",
+          "status": "unresolved",
+          "support": 0.35,
+          "candidates": [],
+          "note": "暂无可靠企业候选，建议补问门店全称与经营地址"
+        },
+        "intent": {
+          "level": "medium",
+          "score": 45.0,
+          "card": [
+            {
+              "key": "pain",
+              "label": "需求痛点",
+              "weight": 25,
+              "points": 25.0,
+              "strength": 2,
+              "quote": "出图很慢，经常要返工，确实想改善。",
+              "turn_id": "T4",
+              "explanation": "明确出图效率与返工痛点，想改善"
+            },
+            {
+              "key": "timeline",
+              "label": "时间计划",
+              "weight": 25,
+              "points": 0.0,
+              "strength": 0,
+              "quote": "采购什么时候推进还没定",
+              "turn_id": "T4",
+              "explanation": "客户明确采购时间未定"
+            },
+            {
+              "key": "budget",
+              "label": "预算信息",
+              "weight": 20,
+              "points": 0.0,
+              "strength": 0,
+              "quote": "预算也还没批",
+              "turn_id": "T4",
+              "explanation": "预算未批，无明确预算范围"
+            },
+            {
+              "key": "engagement",
+              "label": "推进动作",
+              "weight": 20,
+              "points": 10.0,
+              "strength": 1,
+              "quote": "可以，先发资料我看看。",
+              "turn_id": "T6",
+              "explanation": "同意加微信先收资料"
+            },
+            {
+              "key": "scale",
+              "label": "使用规模",
+              "weight": 10,
+              "points": 10.0,
+              "strength": 2,
+              "quote": "我们8个设计师",
+              "turn_id": "T4",
+              "explanation": "8名设计师，多人使用"
+            }
+          ],
+          "reason": "需求痛点：明确出图效率与返工痛点，想改善；推进动作：同意加微信先收资料；使用规模：8名设计师，多人使用",
+          "high_gate_met": false,
+          "refusal": {
+            "value": "",
+            "quote": "",
+            "turn_id": ""
+          },
+          "version": "1.0"
+        },
+        "review_reasons": [
+          "暂无可靠企业候选，建议补问门店全称与经营地址",
+          "联系人仅为销售称呼，客户未自报全名；职位未核实",
+          "门店数未提及",
+          "手机号未提及",
+          "缺少客户联系方式",
+          "综合证据支持度低于审核阈值0.80"
+        ],
+        "mode": "llm",
+        "provider_model": "deepseek/deepseek-flash",
+        "usage": {
+          "prompt_tokens": 1045,
+          "completion_tokens": 2899,
+          "total_tokens": 3944,
+          "prompt_tokens_details": {
+            "cached_tokens": 640
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 2440
+          }
+        },
+        "attempts": 1,
+        "elapsed_seconds": 14.54,
+        "prompt_version": "1.2",
+        "input_hash": "0598430eaf653ab53c8151199c274d4fb60e1564acc12ea7d4f88520b7a2ff13",
+        "confidence_note": "启发式证据支持度，尚未用独立样本校准为正确概率",
+        "workflow": [
+          "发言整理",
+          "事实与信号抽取",
+          "原文证据校验",
+          "企业候选消歧",
+          "评分卡判级",
+          "审核分流"
+        ]
+      }
+    }
+  ]
+}
