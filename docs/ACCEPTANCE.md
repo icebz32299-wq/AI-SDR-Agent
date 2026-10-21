@@ -1,8 +1,10 @@
 # 验收与效果评估
 
+本次交付源码副本于2026年10月21日执行140项程序回归，全部通过。结果保存在 `test-results.xml`；模型案例报告中的程序测试摘要已同步。
+
 ## 可重复程序测试
 
-`python -m pytest -q --junitxml=docs/test-results.xml`
+`python -m pytest tests -q --junitxml=docs/test-results.xml`
 
 覆盖15字段契约、销售信号排除、原文引用归属、无依据补全、预算否定、意向门槛、拒绝优先、品牌/工商主体区分、地区行业约束、未知角色、错误不降级、审核记录与乐观锁、批量回滚、CSV公式防护、同源写入限制、可选访问令牌、录音索引和密钥不可从静态目录读取。
 
@@ -37,7 +39,7 @@
 
 `python scripts/audit_core.py`会实际调用模型，预期字段和行为位于`tests/fixtures/core_cases.json`。13条案例覆盖题目设计部人数、品牌错字、销售错误称呼、总员工与设计师区分、预算上限/未批、历史拒绝与重新推进、回电时间、当前/筹备门店、通话内指令及未知角色。结果保存于`core-evaluation.json`。它们是用于开发和回归的合成挑战，不是独立真实金标。
 
-完整PDF逐项映射、干净环境验证与评分短板见 [严格核对报告](STRICT_AUDIT.md) 和 `audit-evidence.json`。GitHub仓库与最终视频仍须封版交付，不以测试通过替代这些交付项。
+最终实现说明见 [设计正文](DESIGN_SUBMISSION.md)，当前程序回归见 `test-results.xml`。开发阶段的逐项核对保留在 [历史核对报告](STRICT_AUDIT.md) 和 `audit-evidence.json`；其中数量和提交状态描述记录时点。
 
 ## 人工验收步骤
 

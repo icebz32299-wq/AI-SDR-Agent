@@ -1,3 +1,5 @@
+> 开发阶段历史记录：文内测试数量和当时的提交状态只描述记录时点。当前设计见 `DESIGN_SUBMISSION.md`，运行见 `RUNNING.md`，程序回归见 `test-results.xml`。
+
 # PDF 严格核对报告（2026-10-21）
 
 ## 结论

@@ -3,11 +3,11 @@
   "mode": "llm",
   "provider_model": "deepseek/deepseek-flash",
   "summary": "题目示例与合成边界案例用于验证结构、证据和意向。真实录音尚未形成独立人工金标，不宣称真实业务准确率。",
-  "tests_passed": 128,
+  "tests_passed": 140,
   "test_summary": {
-    "generated_at": "2026-10-20T16:53:25.672324+00:00",
-    "total": 128,
-    "passed": 128,
+    "generated_at": "2026-10-21T04:59:22.113749+00:00",
+    "total": 140,
+    "passed": 140,
     "failed": 0,
     "skipped": 0
   },

@@ -1,4 +1,4 @@
-# 从 GitHub 获取并运行
+# 获取源码并运行
 
 本项目在评审自己的电脑运行，不需要云服务器、独立显卡、Docker或Node.js。推荐Python 3.12和现代浏览器；录音识别使用CPU，长录音需要等待。
 
@@ -6,7 +6,14 @@
 
 ## 1. 获取源码
 
+如果已拿到本次源码文件夹，可直接进入包含 `README.md` 的目录，从第二步开始。
+
 在本项目GitHub仓库页面点击 **Code → Download ZIP**，解压后进入包含`README.md`、`app/`和`requirements-audio.txt`的目录。也可以使用Git克隆该仓库。
+
+```bash
+git clone https://github.com/icebz32299-wq/AI-SDR-Agent.git
+cd AI-SDR-Agent
+```
 
 后续命令都在这个项目目录执行，不是在`app`或`scripts`子目录中执行。
 
@@ -18,7 +25,7 @@
 python --version
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements-audio.txt
-Copy-Item .env.example .env
+if (-not (Test-Path .env)) { Copy-Item .env.example .env }
 ```
 
 `Copy-Item`只在首次配置、尚无`.env`时执行。已配置过的`.env`应保留，不要覆盖。
@@ -113,7 +120,7 @@ cp .env.example .env
 
 ```powershell
 .\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
-.\.venv\Scripts\python.exe -m pytest -q
+.\.venv\Scripts\python.exe -m pytest tests -q
 ```
 
-当前通过的测试与模型案例见[验收说明](ACCEPTANCE.md)，架构、Prompt和评分设计见[设计文档](DESIGN.md)。真实业务识别准确率的局限见[严格核对报告](STRICT_AUDIT.md)。
+当前通过的测试与模型案例见[验收说明](ACCEPTANCE.md)，架构、Prompt和评分设计见[最终设计文档](DESIGN_SUBMISSION.md)。真实业务识别准确率的局限见[严格核对报告](STRICT_AUDIT.md)。
