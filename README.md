@@ -4,6 +4,15 @@
 
 评审首次使用请看[从GitHub获取并运行](docs/RUNNING.md)，包含下载、密钥配置、CPU语音模型准备、启动/停止和常见问题。无需租用服务器。
 
+## 获取源码
+
+在[GitHub仓库](https://github.com/icebz32299-wq/AI-SDR-Agent)点击Code → Download ZIP并解压，或执行：
+
+```bash
+git clone https://github.com/icebz32299-wq/AI-SDR-Agent.git
+cd AI-SDR-Agent
+```
+
 ## 快速运行
 
 推荐Python 3.12（支持3.11+）。在本目录执行，包含录音转写所需依赖：
@@ -86,7 +95,7 @@ Linux/macOS使用 `python3 -m venv .venv`，后续将上述`.\.venv\Scripts\pyth
 
 ## DEMO与邮件提交
 
-题目允许DEMO二选一：**可访问的在线Demo，或GitHub仓库＋运行说明**。本项目选择GitHub仓库方案，无需租用服务器。评审获取仓库后按本页步骤配置并运行，`127.0.0.1:8765`是运行后的本机地址。邮件同时提供设计文档和与最终版本一致的录屏文件，详见 [提交清单](docs/SUBMISSION.md)。当前仓库尚未发布。
+题目允许DEMO二选一：**可访问的在线Demo，或GitHub仓库＋运行说明**。本项目选择GitHub仓库方案，无需租用服务器。评审获取仓库后按本页步骤配置并运行，`127.0.0.1:8765`是运行后的本机地址。邮件同时提供设计文档和与最终版本一致的录屏文件，详见 [提交清单](docs/SUBMISSION.md)。仓库地址：[https://github.com/icebz32299-wq/AI-SDR-Agent](https://github.com/icebz32299-wq/AI-SDR-Agent)。
 
 若以后需要在线Demo，公网部署作为可选方案，见 [部署说明](docs/DEPLOYMENT.md)。
 

@@ -2,6 +2,8 @@
 
 本项目在评审自己的电脑运行，不需要云服务器、独立显卡、Docker或Node.js。推荐Python 3.12和现代浏览器；录音识别使用CPU，长录音需要等待。
 
+项目仓库：[https://github.com/icebz32299-wq/AI-SDR-Agent](https://github.com/icebz32299-wq/AI-SDR-Agent)
+
 ## 1. 获取源码
 
 在本项目GitHub仓库页面点击 **Code → Download ZIP**，解压后进入包含`README.md`、`app/`和`requirements-audio.txt`的目录。也可以使用Git克隆该仓库。
